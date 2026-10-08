@@ -12,7 +12,7 @@
 
 <img src="https://img.shields.io/badge/BeautifulSoup4-ffff00?logo=pypi" alt="BeautifulSoup4"/>
 
-   <br>
+<br>
 
 <img src="https://img.shields.io/badge/Chat--Model-LLaMA--4--Maverick-F55036?labelColor=white" alt="LLaMA-4 (Groq Cloud)"/>
 
@@ -20,7 +20,7 @@
 
 <img src="https://img.shields.io/badge/Reranking--Model-Cohere--Reranker--v3.5-436645?labelColor=white" alt="Cohere reranker v3.5"/>
 
-This is a Retrieval-Augmented Generation (RAG) project that automates the creation of personalized cold emails. It leverages vector search and large language models to craft highly tailored emails based on both the sender's and the recipient's information.
+This RAG project automates the creation of personalized cold emails. It leverages vector search and large language models to craft highly tailored emails based on both the sender's and the recipient's information.
 
 </div>
 
@@ -28,7 +28,9 @@ This is a Retrieval-Augmented Generation (RAG) project that automates the creati
 
 ### 🧠 Workflow 
 
-![Workflow Diagram](workflow.svg)
+<p align="center">
+  <img src="workflow.svg" alt="Workflow Diagram" width="500">
+</p>
 
 ---
 
