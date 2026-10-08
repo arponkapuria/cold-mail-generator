@@ -4,40 +4,23 @@
 
 <br>
 
-<p align="center">
-   <a href="https://www.python.org/">
-      <img src="https://img.shields.io/badge/Python-3776AB.svg?logo=Python&logoColor=white" alt="Python"/>
-   </a>
+<img src="https://img.shields.io/badge/Python-3776AB.svg?logo=Python&logoColor=white" alt="Python"/>
 
-   <a href="https://www.langchain.com/">
-      <img src="https://img.shields.io/badge/LangChain-1C3C3C.svg?logo=LangChain&logoColor=white" alt="LangChain"/>
-   </a>
+<img src="https://img.shields.io/badge/LangChain-1C3C3C.svg?logo=LangChain&logoColor=white" alt="LangChain"/>
 
-   <a href="https://faiss.ai/">
-      <img src="https://img.shields.io/badge/FAISS-228B22?logo=meta&logoColor=white" alt="FAISS"/>
-   </a>
+<img src="https://img.shields.io/badge/FAISS-228B22?logo=meta&logoColor=white" alt="FAISS"/>
 
-   <a href="https://www.crummy.com/software/BeautifulSoup/">
-      <img src="https://img.shields.io/badge/BeautifulSoup4-ffff00?logo=pypi" alt="BeautifulSoup4"/>
-   </a>
+<img src="https://img.shields.io/badge/BeautifulSoup4-ffff00?logo=pypi" alt="BeautifulSoup4"/>
 
    <br>
 
-   <a href="https://console.groq.com/docs/model/meta-llama/llama-4-maverick-17b-128e-instruct">
-  <img src="https://img.shields.io/badge/Chat--Model-LLaMA--4--Maverick-F55036?labelColor=white" alt="LLaMA-4 (Groq Cloud)"/>
-   </a>
+<img src="https://img.shields.io/badge/Chat--Model-LLaMA--4--Maverick-F55036?labelColor=white" alt="LLaMA-4 (Groq Cloud)"/>
 
-   <a href="https://jina.ai/news/jina-embeddings-v3-a-frontier-multilingual-embedding-model/">
-  <img src="https://img.shields.io/badge/Embeddings--Model-Jina--Embeddings--v3-121212?labelColor=white" alt="Jina Embeddings v3"/>
-   </a>
+<img src="https://img.shields.io/badge/Embeddings--Model-Jina--Embeddings--v3-121212?labelColor=white" alt="Jina Embeddings v3"/>
 
+<img src="https://img.shields.io/badge/Reranking--Model-Cohere--Reranker--v3.5-436645?labelColor=white" alt="Cohere reranker v3.5"/>
 
-   <a href="https://cohere.com/blog/rerank-3pt5">
-   <img src="https://img.shields.io/badge/Reranking--Model-Cohere--Reranker--v3.5-436645?labelColor=white" alt="Cohere reranker v3.5"/>
-   </a>
-</p>
-
-This is a Retrieval-Augmented Generation (RAG) project that automates the creation of personalized cold emails for prospective Master's or PhD students reaching out to professors. It leverages vector search and large language models to craft highly tailored emails based on both the applicant’s and professor’s information.
+This is a Retrieval-Augmented Generation (RAG) project that automates the creation of personalized cold emails. It leverages vector search and large language models to craft highly tailored emails based on both the sender's and the recipient's information.
 
 </div>
 
@@ -52,11 +35,11 @@ This is a Retrieval-Augmented Generation (RAG) project that automates the creati
 ### ✨ Features
 
 1. **Generates emails based on:**
-   - Applicant's profile and academic background
-   - Professor's research interests and works
-   - Papers read (or smart matching if no papers are read)
+   - Sender's profile and background
+   - Recipient's interests and published work
+   - Work the sender has read (or smart matching if none is specified)
 2. **Smart fallback:**  
-   If no papers have been read, the system automatically matches professor's papers to the applicant's research experience.
+   If no work is specified, the system automatically matches the recipient's work to the sender's experience.
 3. **Human-like personalization:**  
    Emails are crafted to feel genuine, motivated, and thoughtful.
 4. **Auto-save:**  
@@ -109,8 +92,8 @@ cold-mail-generator/
 │   └── retrieval.py        # Extracts relevant information from database
 │
 ├── scraping/
-│   ├── scrape_prof.py      # Scrapes professor's information
-│   └── scrape_user.py      # Processes applicant's information
+│   ├── scrape_recipient.py # Scrapes recipient's information
+│   └── scrape_sender.py    # Processes sender's information
 │
 ├── .env                    # Environment variables (e.g., API keys)
 ├── .gitignore              # Specifies files and folders to ignore in Git
@@ -132,37 +115,36 @@ cold-mail-generator/
 
 1. **Clone the repository**
 
-   ```bash
+```bash
    git clone https://github.com/arpon-kapuria/cold-mail-generator.git
-   cd cold-email-generator
-   ```
+   cd cold-mail-generator
+```
 
 2. **Create and activate a virtual environment**
 
-   ```bash
+```bash
    python3.9 -m venv env
    source env/bin/activate   # On Windows: env\Scripts\activate
-   ```
+```
 
 3. **Install project dependencies**
 
-   ```bash
+```bash
    pip3.9 install -r requirements.txt
    
    # If the above doesn't work, try:
    pip install -r requirements.txt 
-   ```
-   
+```
 
 4. **Set up environment variables**
 
    Create a `.env` file in the root directory and add necessary environment variables:
 
-   ```
+```
    GROQ_API_KEY="groq_api_key"
    JINA_API_TOKEN="jina_api_token"
    COHERE_API_KEY="cohere_api_key"
-   ```
+```
 
 ---
 
@@ -170,17 +152,17 @@ cold-mail-generator/
 
 1. **Launch the Streamlit app**
 
-   ```bash
+```bash
    streamlit run main.py
-   ```
+```
   
 2. **Result**
 
    - Your generated cold email will be printed on the screen AND saved automatically as a .txt file with the current date and time inside the `outputs/` folder.
    - The email file will be named like:  
-     ```
+```
      Email_YYYY-MM-DD_HH-MM-SS.txt
-     ```
+```
 
 ---
 
@@ -204,8 +186,8 @@ cold-mail-generator/
 ### 📋 Notes
 
 - `.env` must be configured properly with the required keys.
-- Internet connection is required for scraping professor data and calling the language model API.
-- Use responsibly and ethically while contacting professors.
+- Internet connection is required for scraping recipient data and calling the language model API.
+- Use responsibly and ethically while contacting recipients.
 
 ---
 
